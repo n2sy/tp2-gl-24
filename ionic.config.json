@@ -1,0 +1,7 @@
+{
+  "name": "TP2-GL-C",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
