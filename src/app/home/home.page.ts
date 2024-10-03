@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { GestionCoursesService } from '../gestion-courses.service';
+import { Course } from '../models/course';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  tabCourses: Course[];
+  constructor(private courseSer: GestionCoursesService) {}
 
-  constructor() {}
-
+  ngOnInit() {
+    this.tabCourses = this.courseSer.getAllCourses();
+  }
 }

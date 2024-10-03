@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-icon
+        (click)="presentAlert()"
+        slot="icon-only"
+        name="trash-outline"
+      ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-margin">
+    <strong>Details of this course : </strong>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" offset="3">
+          <ion-img [src]="selectedCourse.image"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <h3 class="ion-text-center">
+      {{ selectedCourse.title }} by {{ selectedCourse.author }} 
+    </h3>
+    <strong>Content of this course : </strong>
+    <ion-list>
+      @for (keyword of selectedCourse.keywords; track $index) {
+      <ion-item>
+        <ion-label> {{ keyword }} </ion-label>
+      </ion-item>
+      }
+    </ion-list>
+  </div>
+</ion-content>
