@@ -38,6 +38,12 @@ export class GestionCoursesService {
     return this.allCourses.find((c) => c.id == id);
   }
 
+  addCourse(nCourse) {
+    nCourse.id = this.allCourses[this.allCourses.length - 1].id + 1;
+    nCourse.keywords = nCourse.keywords.split(',');
+    this.allCourses.push(nCourse);
+  }
+
   getAllCourses() {
     return this.allCourses;
   }
